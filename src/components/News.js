@@ -6,7 +6,8 @@ export class News extends Component {
     super();
     this.state = {
   articles: [],
-  loading: false
+  loading: false,
+  page: 1
     }
   }
 
@@ -18,6 +19,15 @@ export class News extends Component {
     console.log(parsedData);
     this.setState({articles: parsedData.articles})
   }
+
+  handlePrevClick = ()=>{
+    console.log("Previous");
+  }
+
+  handleNextClick = ()=>{
+    console.log("Next");
+  }
+
 
   render() {
     return (
@@ -31,6 +41,10 @@ export class News extends Component {
         })}
       
         </div>
+        <div className="container d-flex justify-content-between">
+        <button className="btn btn-dark" onClick={this.handlePrevClick}>&larr; Previous</button>
+        <button className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
+      </div>
       </div>
     );
   }
